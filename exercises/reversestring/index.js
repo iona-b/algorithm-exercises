@@ -32,6 +32,7 @@
 // }
 
 
+
 // Teaching Answer 1B:
 
 function reverse(str) {
