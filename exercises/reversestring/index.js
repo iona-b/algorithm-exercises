@@ -6,7 +6,7 @@
 //   reverse('hello') === 'olleh'
 //   reverse('Greetings!') === '!sgniteerG'
 
-// My Answer:
+// My Solution:
 
 // function reverse(str) {
 
@@ -21,7 +21,7 @@
 // }
 
 
-// Teaching Answer 1A:
+// Solution 1A:
 
 // function reverse(str) {
 
@@ -33,30 +33,40 @@
 
 
 
-// Teaching Answer 1B:
+// Solution 1B:
+
+// function reverse(str) {
+
+//     return str.split('').reverse().join('');
+
+// }
+
+
+// Solution 2:
+
+// function reverse(str) {
+
+//     let reversed = '';
+
+//     // Wherever possible, avoid classic for loop syntax.
+
+//     // It's preferable to use new ES6 syntax where you can.
+
+//     for (let character of str) {
+//         reversed = character + reversed;
+//     }
+
+//     return reversed;
+
+// }
+
+
+// Solution 3:
 
 function reverse(str) {
 
-    return str.split('').reverse().join('');
+    return str.split('').reduce((reversed, character) => character + reversed, '');
 
 }
-
-
-// Teaching Answer 2:
-
-// function reverse(str) {
-
-
-
-// }
-
-
-// Teaching Answer 3:
-
-// function reverse(str) {
-
-
-
-// }
 
 module.exports = reverse;
