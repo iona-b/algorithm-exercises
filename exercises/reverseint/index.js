@@ -8,6 +8,62 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+
+// My Solution
+
+// function reverseInt(n) {
+
+//     n = n.toString().split('');
+
+//     let negative;
+
+//     if (n[0] === "-") {
+//         negative = true;
+//     } else {
+//         negative = false;
+//     }
+
+//     let reversedN = n.reduce((reversed, char) => char + reversed, '');
+
+//     if (negative === true) {
+//         return parseInt(reversedN) - parseInt(reversedN) * 2
+//     } else {
+//         return parseInt(reversedN)
+//     }
+
+// }
+
+
+// Solution 1
+
+// function reverseInt(n) {
+
+//     let negative = Math.sign(n)
+  
+//     n = n.toString().split('');
+
+//     let reversedN = n.reduce((reversed, char) => char + reversed, '');
+
+//     if (negative === -1) {
+//         return parseInt(reversedN) * -1
+//     } else {
+//         return parseInt(reversedN)
+//     }
+  
+// }
+
+// Solution 2
+
+function reverseInt(n) {
+
+    let reversed = n.toString().split('').reverse().join('');
+
+    return parseInt(reversed) * Math.sign(n);
+
+    // OR 
+
+    // return parseInt(n.toString().split('').reverse().join('')) * Math.sign(n);
+  
+}
 
 module.exports = reverseInt;
