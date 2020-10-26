@@ -10,22 +10,55 @@
 
 // My Solution
 
-function chunk(array, size) {
+// function chunk(array, size) {
 
-    let newArray = [];
+//     let newArray = [];
   
-    while (array.length >= size) {
-      newArray.push(array.splice(0, size));
-    }
+//     while (array.length >= size) {
+//       newArray.push(array.splice(0, size));
+//     }
   
-    if (array.length > 0) {
-      newArray.push(array);
-    }
+//     if (array.length > 0) {
+//       newArray.push(array);
+//     }
   
-    return newArray;
+//     return newArray;
   
-  }
+// }
 
 // Solution 1
+
+// function chunk(array, size) {
+
+//   let chunked = [];
+
+//   for (let element of array) {
+//     let last = chunked[chunked.length - 1];
+//     if (!last || last.length === size) {
+//       chunked.push([element]);
+//     } else {
+//       last.push(element);
+//     }
+//   }
+
+//   return chunked;
+
+// }
+
+// Solution 2
+
+function chunk(array, size) {
+
+  let chunked = [];
+  let index = 0;
+
+  while (index < array.length) {
+    chunked.push(array.slice(index, index + size))
+    index += size;
+  }
+
+  return chunked;
+
+}
 
 module.exports = chunk;
