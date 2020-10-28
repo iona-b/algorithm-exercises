@@ -10,20 +10,53 @@
 
 // My Solution
 
+// function capitalize(str) {
+
+//     let capitalized = [];
+  
+//       let split = str.split(' ');
+  
+//       for (let word of split) {
+//         let newWord = word[0].toUpperCase() + word.slice(1);
+//         capitalized.push(newWord);
+//       }
+  
+//       return capitalized.join(' ');
+  
+// }
+
+
+// Solution 1
+
+// function capitalize(str) {
+
+//     let words = [];
+
+//     for (let word of str.split(' ')) {
+//         words.push(word[0].toUpperCase() + word.slice(1));
+//     }
+
+//     return words.join(' ');
+  
+// }
+
+
+// Solution 2
+
 function capitalize(str) {
 
-    let capitalized = [];
-    let newWord;
-  
-      let split = str.split(' ');
-  
-      for (let word of split) {
-        newWord = word[0].toUpperCase() + word.slice(1);
-        capitalized.push(newWord);
-      }
-  
-      return capitalized.join(' ');
-  
+    let result = str[0].toUpperCase();
+
+    for (let i = 1; i < str.length; i++) {
+        if (str[i - 1] === " ") {
+            result += str[i].toUpperCase();
+        } else {
+            result += str[i];
+        }
+    }
+
+    return result;
+
 }
 
 module.exports = capitalize;
