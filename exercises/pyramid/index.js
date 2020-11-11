@@ -70,23 +70,49 @@
 
 // Solution 2 
 
-function pyramid(n, row = 0, level = "") {
+// function pyramid(n, row = 0, level = "") {
 
-    let totalColumns = 2 * n - 1;
-    let midPoint = Math.floor((2 * n - 1) / 2);
+//     let totalColumns = 2 * n - 1;
+//     let midPoint = Math.floor((2 * n - 1) / 2);
+
+//     if (n === row) { 
+//         return;
+//     }
+
+//     if (level.length === totalColumns) {
+//         console.log(level); 
+//         return pyramid(n, row + 1); 
+//     }
+
+//     let add = midPoint - row <= level.length && midPoint + row >= level.length ? "#" : " ";
+
+//     pyramid(n, row, level + add);
+
+// }
+
+// Solution 3
+
+function pyramid(n, row = 0, level = "") {
 
     if (n === row) { 
         return;
     }
 
-    if (level.length === totalColumns) {
+    if (level.length === 2 * n - 1) {
         console.log(level); 
         return pyramid(n, row + 1); 
     }
 
-    let add = midPoint - row <= level.length && midPoint + row >= level.length ? "#" : " ";
+    const midpoint = Math.floor((2 * n - 1) / 2);
+    let add;
+    
+    if (midpoint - row <= level.length && midpoint + row >= level.length) {
+        add = "#";
+    } else {
+        add = " ";
+    }
 
-    pyramid(n, row, level + add);
+    pyramid(n, row, add)
 
 }
 
