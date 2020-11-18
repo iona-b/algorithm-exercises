@@ -12,6 +12,20 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+// Use two variables to keep track of iterations through the linked list.
+
+function midpoint(list) {
+
+    let slowPointer = list.head;
+    let fastPointer = list.head;
+
+    while (fastPointer.next && fastPointer.next.next) {
+        slowPointer = slowPointer.next;
+        fastPointer = fastPointer.next.next;
+    }
+
+    return slowPointer;
+
+}
 
 module.exports = midpoint;
